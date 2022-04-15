@@ -1,4 +1,4 @@
-import { Song } from './song'
+import { Song } from './song.imba'
 
 tag App
 	prop songs = [new Song('Hello'), new Song('Hello again')]
