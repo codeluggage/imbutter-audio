@@ -1,15 +1,16 @@
 {
     "name": "imba-base-template",
     "scripts": {
-        "start": "imba serve app/client.imba",
-        "build": "imba build app/client.imba",
-        "test": "imba scripts/test-runner.imba"
+        "start": "imba -w server.imba",
+        "build": "imba build server.imba"
     },
     "dependencies": {
-        "imba": "^2.0.0-alpha.155",
-        "esbuild": "^0.9.7"
+        "express": "^4.17.1",
+        "imba": "^2.0.0-alpha.207"
     },
-    "devDependencies": {
-        "puppeteer": "^2.1.1"
-    }
+    "repository": "codeluggage/imbutter-audio",
+    "description": "Native audio player with an easy web interface",
+    "version": "0.0.1",
+    "homepage": "https://github.com/codeluggage/imbutter-audio",
+    "author": "Matias Forbord (https://github.com/codeluggage)"
 }
