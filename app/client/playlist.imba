@@ -18,4 +18,13 @@ export class Playlist
 		return #songs[#index]
 
 	def skipForwards\void
-		return
+		return unless length > 0
+		return unless #index < (length - 1)
+		
+		#index += 1
+
+	def skipBackwards\void
+		return unless length > 0
+		return unless #index > 0
+		
+		#index -= 1
