@@ -3,7 +3,7 @@ import { Song } from '../../client/song'
 
 describe 'Song', do
 	test 'when created, song is not done', do
-		const s = new Song()
+		const s = new Song('42')
 
 		const actual = s.progress
 

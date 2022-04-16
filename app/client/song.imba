@@ -1,6 +1,9 @@
 export class Song
-	title = '<No title>'
-	progress = 0.0
+	static None = new Song('<None>')
 
-	constructor title
+	title\string
+	progress\number
+
+	constructor title\string
 		title = title
+		progress = 0.0
