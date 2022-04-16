@@ -10,3 +10,25 @@ describe 'when creating a player', do
 
 		expect(actual).toBe Playlist.None
 
+	test 'it is stopped', do
+		const player = new Player()
+
+		const actual = player.playing
+
+		expect(actual).toBe false
+
+	test 'playing does nothing', do
+		const player = new Player()
+
+		player.play()
+		const actual = player.playing
+
+		expect(actual).toBe false
+
+	test 'stopping does nothing', do
+		const player = new Player()
+
+		player.stop()
+		const actual = player.playing
+
+		expect(actual).toBe false
