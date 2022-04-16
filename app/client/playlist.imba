@@ -1,3 +1,4 @@
+# import * as pc from 'patcom'
 import { Song } from './song'
 
 export class Playlist
@@ -11,20 +12,10 @@ export class Playlist
 		#songs.push(song)
 
 	@computed get currentSong\Song
-		return Song.None unless length > 0
-		return Song.None unless #index < length
-		return Song.None if #index < 0
-		
-		return #songs[#index]
+		return #songs[#index] or Song.None
 
 	def skipForwards\void
-		return unless length > 0
-		return unless #index < (length - 1)
-		
-		#index += 1
+		#index += 1 if #songs[#index + 1]
 
 	def skipBackwards\void
-		return unless length > 0
-		return unless #index > 0
-		
-		#index -= 1
+		#index -= 1 if #songs[#index - 1]
