@@ -1,6 +1,8 @@
 import { Song } from './song'
 
 export class Playlist
+	static None = new Playlist()
+
 	@observable #songs\Song[] = []
 	@observable #index = 0
 
