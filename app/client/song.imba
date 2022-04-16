@@ -1,12 +1,6 @@
 export class Song
 	title = '<No title>'
-	done = no
+	progress = 0.0
 
 	constructor title
 		title = title
-
-	def archive
-		yes
-
-	def toggle
-		done = !done
