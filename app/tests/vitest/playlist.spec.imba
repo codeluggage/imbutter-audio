@@ -78,6 +78,19 @@ describe 'when skipping forwards', do
 
 		expect(actual).toBe s2
 
+	test 'it skips twice', do
+		const p = new Playlist()
+		p.add new Song('1')
+		p.add new Song('2')
+		p.add new Song('3')
+		p.add new Song('4')
+
+		p.skipForwards()
+		p.skipForwards()
+		const actual = p.currentSong
+
+		expect(actual.title).toBe '3'
+
 
 describe 'when skipping backwards', do
 	test 'it does nothing when empty', do
@@ -111,3 +124,18 @@ describe 'when skipping backwards', do
 
 		expect(actual).toBe s1
 
+	test 'it skips twice', do
+		const p = new Playlist()
+		p.add new Song('1')
+		p.add new Song('2')
+		p.add new Song('3')
+		p.add new Song('4')
+
+		p.skipForwards()
+		p.skipForwards()
+		p.skipForwards()
+		p.skipBackwards()
+		p.skipBackwards()
+		const actual = p.currentSong
+
+		expect(actual.title).toBe '2'
