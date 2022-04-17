@@ -6,9 +6,9 @@ describe 'when creating a playlist', do
 	test 'it is empty', do
 		const p = new Playlist()
 
-		const actual = p.length
+		const actual = p.isEmpty
 
-		expect(actual).toBe 0
+		expect(actual).toBe true
 
 	test 'it has no current song', do
 		const p = new Playlist()

@@ -8,6 +8,9 @@ export class Playlist
 
 	@computed get length\number
 		#songs.length
+	
+	@computed get isEmpty\boolean
+		length <= 0
 
 	@action def add(song\Song)
 		#songs.push(song)

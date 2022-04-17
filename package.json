@@ -13,10 +13,12 @@
     },
     "dependencies": {
         "express": "^4.17.1",
-        "imba": "^2.0.0-alpha.207"
+        "imba": "^2.0.0-alpha.207",
+        "patcom": "^1.1.0"
     },
     "devDependencies": {
         "@playwright/test": "^1.21.0",
+        "c8": "^7.11.0",
         "vitest": "^0.9.3"
     },
     "repository": "codeluggage/imba-native-audio-player",
