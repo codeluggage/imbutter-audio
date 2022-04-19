@@ -1,4 +1,4 @@
-# imbutter-audio
+# Imbutter audio
 
 Audio player in Imba and Flutter.
 
