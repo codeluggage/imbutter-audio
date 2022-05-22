@@ -1,9 +1,15 @@
 {
     "name": "imbutter-audio",
+    "version": "0.0.1",
+    "repository": "codeluggage/imbutter-audio",
+    "description": "Native audio player with an easy web interface",
+    "homepage": "https://github.com/codeluggage/imbutter-audio",
+    "author": "Matias Forbord (https://github.com/codeluggage)",
     "scripts": {
         "start": "imba -w app/server/index.imba",
-        "build:unit": "imbac app -o _dist_esm",
-        "build:unit-watch": "imbac -w app -o _dist_esm",
+        "build:unit-prepare": "mkdir _dist_esm ; rm -r _dist_esm/lib ; cp -r app/lib _dist_esm",
+        "build:unit": "npm run build:unit-prepare && imbac app -o _dist_esm",
+        "build:unit-watch": "npm run build:unit-prepare && imbac -w app -o _dist_esm",
         "test": "npm run build:unit && npm run test:unit-once && npm run test:e2e",
         "test:unit": "npm run build:unit && vitest",
         "test:unit-once": "npm run build:unit && vitest --run",
@@ -13,17 +19,11 @@
     },
     "dependencies": {
         "express": "^4.17.1",
-        "imba": "^2.0.0-alpha.207",
-        "managed-timeout": "^1.1.5"
+        "imba": "^2.0.0-alpha.207"
     },
     "devDependencies": {
         "@playwright/test": "^1.21.0",
         "c8": "^7.11.0",
         "vitest": "^0.9.3"
-    },
-    "repository": "codeluggage/imbutter-audio",
-    "description": "Native audio player with an easy web interface",
-    "version": "0.0.1",
-    "homepage": "https://github.com/codeluggage/imbutter-audio",
-    "author": "Matias Forbord (https://github.com/codeluggage)"
+    }
 }

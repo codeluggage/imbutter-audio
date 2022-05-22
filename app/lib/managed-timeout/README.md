@@ -1,0 +1,1 @@
+This folder contains `timeout.ts` and `LICENSE` for `npm install managed-timeout`, to work around require issues.

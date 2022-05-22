@@ -1,4 +1,4 @@
-import { Timeout } from 'managed-timeout'
+import { Timeout } from '../lib/managed-timeout/timeout'
 import { Playlist } from './playlist'
 
 const STATIC_TIME = 15 * 1000
