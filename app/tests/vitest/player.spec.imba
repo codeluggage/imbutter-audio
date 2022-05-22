@@ -40,7 +40,7 @@ describe 'when adding one playlist to a player', do
 
 		p.play()
 		const actual = p.playing
-	
+
 		expect(actual).toBe false
 
 	test 'playing begins if playlist is not empty', do
@@ -51,7 +51,7 @@ describe 'when adding one playlist to a player', do
 
 		p.play()
 		const actual = p.playing
-	
+
 		expect(actual).toBe true
 
 describe 'when playing', do
@@ -64,7 +64,7 @@ describe 'when playing', do
 
 		p.stop()
 		const actual = p.playing
-	
+
 		expect(actual).toBe false
 
 	test 'it tracks progress', do
@@ -82,9 +82,9 @@ describe 'when playing', do
 		const actual = p.progress
 
 		vi.useRealTimers()
-	
+
 		expect(actual).toBeCloseTo first + 1
-		
+
 	test 'does not progress when paused', do
 		const now = Date.now()
 		vi.useFakeTimers()
@@ -102,7 +102,7 @@ describe 'when playing', do
 
 		vi.useRealTimers()
 		expect(actual).toBeCloseTo 1
-	
+
 	test 'progressed after being unpaused', do
 		const now = Date.now()
 		vi.useFakeTimers()
