@@ -1,5 +1,6 @@
 import { Timeout } from '../lib/managed-timeout/timeout'
 import { Playlist } from './playlist'
+import { HardwareAPI } from '../shared/hardware-api'
 
 const STATIC_TIME = 15 * 1000
 
@@ -7,8 +8,12 @@ export class Player
 	static NoneTime = new Date(0)
 
 	playlist = Playlist.None
+	api\HardwareAPI = undefined
 	@observable playing = false
 	@observable timer = new Timeout(0)
+
+	constructor api\HardwareAPI
+		api = api
 
 	get progress\number
 		timer.timePassed / 1000
@@ -19,6 +24,7 @@ export class Player
 	def play\void
 		return if playing
 		return if playlist.isEmpty
+		api.play()
 		playing = true
 		timer.reset(STATIC_TIME)
 		timer.start(finished)
