@@ -7,7 +7,8 @@
     "author": "Matias Forbord (https://github.com/codeluggage)",
     "scripts": {
         "start": "imba -w app/server/index.imba",
-        "build": "mkdir dist ; imba build.imba",
+        "dev": "imba -wMS app/server/index.imba",
+        "build": "rm -r dist ; mkdir dist ; imba build.imba",
         "build:unit-prepare": "mkdir _dist_esm ; rm -r _dist_esm/lib ; cp -r app/lib _dist_esm",
         "build:unit": "npm run build:unit-prepare && imbac app -o _dist_esm",
         "build:unit-watch": "npm run build:unit-prepare && imbac -w app -o _dist_esm",

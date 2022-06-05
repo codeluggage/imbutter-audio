@@ -10,7 +10,7 @@ def api-post functionality\string, action\string, params\Object, cb # \(Function
 		headers:
 			'Content-Type': 'application/json'
 		body: JSON.stringify params
-	
+
 	if cb
 		return window.fetch(path, payload).then(cb).catch(cb)
 	else
