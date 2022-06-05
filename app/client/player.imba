@@ -24,7 +24,8 @@ export class Player
 	def play\void
 		return if playing
 		return if playlist.isEmpty
-		api.play()
+		# How do do callbacks here?
+		api.play(playlist.currentSong.title)
 		playing = true
 		timer.reset(STATIC_TIME)
 		timer.start(finished)

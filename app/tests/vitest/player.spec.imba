@@ -1,12 +1,18 @@
-import { vi, expect, describe, test } from 'vitest'
+import { afterEach, vi, expect, describe, test } from 'vitest'
 import { Playlist } from '../../client/playlist'
 import { Song } from '../../client/song'
 import { Player } from '../../client/player'
 
+const api =
+	def play song\String, cb # \(Function | undefined)
+		return new Promise(do return new Response())
+
 describe 'when creating a player', do
+	// @ts-ignore
+	afterEach do
+		vi.restoreAllMocks()
+
 	test 'it has no playlist', do
-		const api =
-			play: do yes
 		const p = new Player(api)
 
 		const actual = p.playlist
@@ -14,8 +20,6 @@ describe 'when creating a player', do
 		expect(actual).toBe Playlist.None
 
 	test 'it is stopped', do
-		const api =
-			play: do yes
 		const p = new Player(api)
 
 		const actual = p.playing
@@ -23,8 +27,6 @@ describe 'when creating a player', do
 		expect(actual).toBe false
 
 	test 'playing does nothing', do
-		const api =
-			play: do yes
 		const p = new Player(api)
 
 		p.play()
@@ -33,8 +35,6 @@ describe 'when creating a player', do
 		expect(actual).toBe false
 
 	test 'stopping does nothing', do
-		const api =
-			play: do yes
 		const p = new Player(api)
 
 		p.stop()
@@ -44,8 +44,6 @@ describe 'when creating a player', do
 
 describe 'when adding one playlist to a player', do
 	test 'playing does nothing if playlist is empty', do
-		const api =
-			play: do yes
 		const p = new Player(api)
 
 		p.play()
@@ -54,8 +52,6 @@ describe 'when adding one playlist to a player', do
 		expect(actual).toBe false
 
 	test 'playing begins if playlist is not empty', do
-		const api =
-			play: do yes
 		const p = new Player(api)
 		const playlist = new Playlist()
 		playlist.add(new Song('42'))
@@ -68,8 +64,6 @@ describe 'when adding one playlist to a player', do
 
 describe 'when playing', do
 	test 'it can stop', do
-		const api =
-			play: do yes
 		const p = new Player(api)
 		const playlist = new Playlist()
 		playlist.add(new Song('42'))
@@ -85,8 +79,6 @@ describe 'when playing', do
 		const now = Date.now()
 		vi.useFakeTimers()
 		vi.setSystemTime(now - 1000)
-		const api =
-			play: do yes
 		const p = new Player(api)
 		const playlist = new Playlist()
 		playlist.add(new Song('42'))
@@ -105,8 +97,6 @@ describe 'when playing', do
 		const now = Date.now()
 		vi.useFakeTimers()
 		vi.setSystemTime(now - 1000)
-		const api =
-			play: do yes
 		const p = new Player(api)
 		const playlist = new Playlist()
 		playlist.add(new Song('42'))
@@ -125,8 +115,6 @@ describe 'when playing', do
 		const now = Date.now()
 		vi.useFakeTimers()
 		vi.setSystemTime(now - 1000)
-		const api =
-			play: do yes
 		const p = new Player(api)
 		const playlist = new Playlist()
 		playlist.add(new Song('42'))
@@ -144,8 +132,6 @@ describe 'when playing', do
 		expect(actual).toBeCloseTo 1
 
 	test 'does not call api before playing', do
-		const api =
-			play: do yes
 		const spy = vi.spyOn(api, 'play')
 
 		const p = new Player(api)
@@ -156,8 +142,6 @@ describe 'when playing', do
 		expect(spy).toHaveBeenCalledTimes 0
 	
 	test 'calls api to start playing', do
-		const api =
-			play: do yes
 		const spy = vi.spyOn(api, 'play')
 
 		const p = new Player(api)
@@ -168,3 +152,6 @@ describe 'when playing', do
 		p.play()
 	
 		expect(spy).toHaveBeenCalledTimes 1
+
+	test.skip 'two songs with same name do not conflict?', do
+		expect(no).toBe yes
